@@ -1,8 +1,10 @@
 {
-    "name": "NomDuJeu.Core",
-    "rootNamespace": "NomDuJeu.Core",
+    "name": "TheLastWitness.Editor",
+    "rootNamespace": "TheLastWitness.Editor",
     "references": [],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
