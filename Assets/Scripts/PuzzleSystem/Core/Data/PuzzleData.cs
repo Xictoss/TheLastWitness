@@ -12,7 +12,10 @@ namespace PuzzleSystem.Core.Data
 
         public abstract void Begin();
 
+        public abstract bool Refresh();
+
         public abstract void End(bool isSuccess);
+
 
         public bool AreAllConditionCompleted()
         {
@@ -27,6 +30,11 @@ namespace PuzzleSystem.Core.Data
             }
 
             return true;
+        }
+
+        public Puzzle ToPuzzle()
+        {
+            return new Puzzle(this);
         }
     }
 }
