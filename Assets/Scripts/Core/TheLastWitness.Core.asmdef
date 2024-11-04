@@ -1,6 +1,6 @@
 {
-    "name": "NomDuJeu.Core",
-    "rootNamespace": "NomDuJeu.Core",
+    "name": "TheLastWitness.Core",
+    "rootNamespace": "TheLastWitness.Core",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],

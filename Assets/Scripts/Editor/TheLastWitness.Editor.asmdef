@@ -1,6 +1,6 @@
 {
-    "name": "NomDuJeu.Editor",
-    "rootNamespace": "NomDuJeu.Editor",
+    "name": "TheLastWitness.Editor",
+    "rootNamespace": "TheLastWitness.Editor",
     "references": [],
     "includePlatforms": [
         "Editor"
