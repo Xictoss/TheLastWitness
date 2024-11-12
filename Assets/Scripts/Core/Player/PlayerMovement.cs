@@ -21,17 +21,23 @@ namespace TheLastWitness.Core.Player
         [SerializeField] private float gravity;
         [Header("Crouch")]
         [SerializeField] private float crounchMultiplier = 0.5f;
+        [SerializeField] private float crouchHeight = 1.5f;
+
         
         private bool isMoving;
         private Vector2 targetVelocity;
         private float verticalVelocity;
+
+        private float baseHeight;
+        
         
         // ChannelKey crouchkey = ChannelKey.GetUniqueChannelKey(); (créer une clée unique pour les channels)
         private void Awake()
         {
             CharacterController = GetComponent<CharacterController>();
-            
+            baseHeight = CharacterController.height;
         }
+        
         private void FixedUpdate()
         {
             verticalVelocity -= gravity * Time.deltaTime;
@@ -45,8 +51,7 @@ namespace TheLastWitness.Core.Player
                 velocity *= crounchMultiplier;
             }
             
-            CollisionFlags collisionFlags = CharacterController.Move(velocity * SPEED_MULTIPLIER * Time.deltaTime);
-            Debug.Log(collisionFlags);
+            CollisionFlags collisionFlags = CharacterController.Move(velocity * (SPEED_MULTIPLIER * Time.deltaTime));
 
             bool isGrounded = (collisionFlags & CollisionFlags.Below) != 0;
             
@@ -58,6 +63,10 @@ namespace TheLastWitness.Core.Player
             {
                 IsCrouching = false;
             }
+
+            CharacterController.height = IsCrouching ? crouchHeight : baseHeight;
+            float diff = CharacterController.height - baseHeight;
+            CharacterController.center = new Vector3(0, diff * .5f, 0);
 
         }
         
