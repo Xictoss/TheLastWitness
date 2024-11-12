@@ -5,7 +5,7 @@ namespace TheLastWitness.Core
 {
     public static class GameController
     {
-        //initialisé les propertys
+        //initialisé les properties
         public static PrioritisedProperty<bool> CursorVisibility { get; private set; }
         public static PrioritisedProperty<CursorLockMode> CursorLockMode { get; private set; }
         //Code exécuter avant le LoadScene
@@ -14,6 +14,7 @@ namespace TheLastWitness.Core
         {
             //Creation
             CursorVisibility = new PrioritisedProperty<bool>(true);
+            
             CursorLockMode = new PrioritisedProperty<CursorLockMode>(UnityEngine.CursorLockMode.None);
             
             //Notification quand la valeur change
