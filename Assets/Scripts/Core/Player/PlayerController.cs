@@ -1,4 +1,3 @@
-using System;
 using LTX.ChanneledProperties;
 using UnityEngine;
 using UnityEngine.InputSystem;
