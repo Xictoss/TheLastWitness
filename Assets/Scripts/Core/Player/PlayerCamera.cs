@@ -59,7 +59,7 @@ namespace TheLastWitness.Core.Player
             
         }
 
-        // recuperer l'input tu joueur et l'ajouter au vector 2 en y et en x //
+        // recuperer l'input du joueur et l'ajouter au vector 2 en y et en x //
         public void OnLookX(InputAction.CallbackContext context)
         {
             targetCamVelocity.y = context.ReadValue<float>() * xModifier;

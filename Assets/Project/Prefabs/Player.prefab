@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3874941674063976589}
   - component: {fileID: 3343075747695711500}
   - component: {fileID: 2238299849104920069}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269251183756877425}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.998071, z: -0, w: -0.0620827}
+  m_LocalRotation: {x: 0, y: 0.9980709, z: -0, w: -0.062084954}
   m_LocalPosition: {x: 9.46, y: 2.38, z: 16.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -54,7 +54,9 @@ MonoBehaviour:
   sprintMultiplier: 2
   acceleration: 16
   deceleration: 32
+  gravity: 40
   crounchMultiplier: 0.5
+  crouchHeight: 1.5
 --- !u!114 &3874941674063976589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +143,19 @@ MonoBehaviour:
     m_ActionId: a9b202fd-fe3f-4bde-8050-62aa85782f81
     m_ActionName: PlayerMovement/Look_Y[/Mouse/delta/y]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4629474294961660215}
+        m_TargetAssemblyTypeName: TheLastWitness.Core.Player.PlayerMovement, TheLastWitness.Core
+        m_MethodName: OnCrouchInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: cba3fa5b-a572-4892-a98c-46d500ac0eb3
     m_ActionName: PlayerMovement/Crouch[/Keyboard/leftCtrl]
   m_NeverAutoSwitchControlSchemes: 0
@@ -186,7 +200,7 @@ GameObject:
   - component: {fileID: 351318464205898103}
   - component: {fileID: 992679077724875525}
   - component: {fileID: 2177323669911997983}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 229476403547366046}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: CameraAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +314,7 @@ GameObject:
   - component: {fileID: 7694169173269751440}
   - component: {fileID: 2562533773597690669}
   - component: {fileID: 4025952381276326801}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +416,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 229476403547366046}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 50
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -432,11 +446,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee65cb6453e455db3b840393b1110aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crouchHeadHeight: {x: 0, y: 0}
-  crouchSmoothness: 0
+  crouchHeadHeight: {x: 1.25, y: 0.5}
+  crouchSmoothness: 200
   speed: 6
   xModifier: 0.8
   yModifier: 0.5
   minY: -80
   maxY: 80
-  head: {fileID: 0}
+  head: {fileID: 229476403547366046}
