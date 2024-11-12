@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557792701235375261}
-  - component: {fileID: 3343075747695711500}
-  - component: {fileID: 2238299849104920069}
   - component: {fileID: 4629474294961660215}
   - component: {fileID: 3874941674063976589}
+  - component: {fileID: 3343075747695711500}
+  - component: {fileID: 2238299849104920069}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -38,6 +38,37 @@ Transform:
   - {fileID: 8814365655425787290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 187.119, z: 0}
+--- !u!114 &4629474294961660215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269251183756877425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8c2ab1cf0e441899586c0a2dcd0cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  sprintMultiplier: 2
+  acceleration: 16
+  deceleration: 32
+  gravity: 40
+  crounchMultiplier: 0.5
+  crouchHeight: 1.5
+--- !u!114 &3874941674063976589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269251183756877425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecaf38b20fea131448b2246fc9a1de4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3343075747695711500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,44 +182,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2.5
+  m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4629474294961660215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269251183756877425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8c2ab1cf0e441899586c0a2dcd0cb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  sprintMultiplier: 2
-  acceleration: 16
-  deceleration: 32
-  gravity: 40
-  crounchMultiplier: 0.5
-  crouchHeight: {x: 2.5, y: 1.5}
---- !u!114 &3874941674063976589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269251183756877425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecaf38b20fea131448b2246fc9a1de4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519492789728294447
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.1414219, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 557792701235375261}
@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 4214153548486664922}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.817, z: 0.192}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0.192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -388,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 6532552911176076030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000015646219, y: 0.8169999, z: 0.1920001}
+  m_LocalPosition: {x: 0.0000003594905, y: 1.25, z: 0.19200037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee65cb6453e455db3b840393b1110aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crouchHeadHeight: {x: 1, y: 0.5}
+  crouchHeadHeight: {x: 1.25, y: 0.5}
   crouchSmoothness: 200
   speed: 6
   xModifier: 0.8
