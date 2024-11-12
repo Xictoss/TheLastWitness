@@ -1,6 +1,4 @@
-﻿using System;
-using LTX.ChanneledProperties;
-using TheLastWitness.Core.Camera;
+﻿using TheLastWitness.Core.Camera;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
