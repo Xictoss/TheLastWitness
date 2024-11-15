@@ -5,23 +5,17 @@ namespace PuzzleSystem.Sample.RadioSample
 {
     public class PlayerExample : MonoBehaviour
     {
+        [SerializeField]
+        private Radio radio;
+
+        [SerializeField]
         private Battery battery;
 
         private void Update()
         {
-            // Ramasser
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                battery = RadioSetup.Instance.battery;
-            }
-
             // Donner
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                RadioSetup.Instance.radio.SetBattery(battery);
-                battery = null;
-            }
-
+            if (Input.GetKeyDown(KeyCode.Space))
+                radio.SetBattery(battery);
         }
     }
 }

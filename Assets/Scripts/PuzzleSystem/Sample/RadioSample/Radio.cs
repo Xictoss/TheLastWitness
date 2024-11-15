@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace PuzzleSystem.Sample.RadioSample
 {
@@ -14,8 +15,6 @@ namespace PuzzleSystem.Sample.RadioSample
         public void SetBattery(Battery batteryToGive)
         {
             this.battery = batteryToGive;
-
-            RadioSetup.Instance.SetDirty();
         }
 
         public void PlayClip(AudioClip audioClip)
