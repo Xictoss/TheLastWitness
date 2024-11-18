@@ -74,7 +74,7 @@ namespace TheLastWitness.Core.Menu
                     GameController.CursorVisibility.ChangeChannelPriority(this, PriorityTags.None);
                     GameController.CursorLockMode.ChangeChannelPriority(this, PriorityTags.None);
                     Time.timeScale = 1f;
-                    break;
+                    return;
                 case MenuState.TableauInput:
                     Time.timeScale = 0f;
                     GameController.CursorVisibility.ChangeChannelPriority(this, PriorityTags.High);
