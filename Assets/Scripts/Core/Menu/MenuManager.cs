@@ -16,6 +16,7 @@ namespace TheLastWitness.Core.Menu
             None = -1,
             Pause = 0,
             Options = 1,
+            TableauInput = 2,
             
         }
 
@@ -50,7 +51,7 @@ namespace TheLastWitness.Core.Menu
             SwitchMenuState((MenuState) index);
         }
 
-        private void SwitchMenuState(MenuState newMenuState)
+        public void SwitchMenuState(MenuState newMenuState)
         {
             for (int i = 0; i < PanelList.Length; i++)
             {
@@ -73,6 +74,12 @@ namespace TheLastWitness.Core.Menu
                     GameController.CursorVisibility.ChangeChannelPriority(this, PriorityTags.None);
                     GameController.CursorLockMode.ChangeChannelPriority(this, PriorityTags.None);
                     Time.timeScale = 1f;
+                    break;
+                case MenuState.TableauInput:
+                    Time.timeScale = 0f;
+                    GameController.CursorVisibility.ChangeChannelPriority(this, PriorityTags.High);
+                    GameController.CursorLockMode.ChangeChannelPriority(this, PriorityTags.High);
+                    break;
 
                     return;
                 default:
