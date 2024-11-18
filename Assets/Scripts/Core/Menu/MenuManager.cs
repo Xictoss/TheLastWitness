@@ -17,7 +17,6 @@ namespace TheLastWitness.Core.Menu
             Pause = 0,
             Options = 1,
             TableauInput = 2,
-            
         }
 
         [SerializeField] private InputAction _inputAction;

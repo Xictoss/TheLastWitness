@@ -12,6 +12,8 @@ namespace PuzzleSystem.Sample.TableauSample
         [SerializeField] private Tableau tableau;
         [SerializeField] private GameObject instructions;
         [SerializeField] private MenuManager menu;
+        [SerializeField] private TableauPlayer player;
+        
         
         [Header("Code")]
         [SerializeField] private string codeToMatch;
@@ -22,7 +24,6 @@ namespace PuzzleSystem.Sample.TableauSample
         
         private TableauPuzzle puzzle;
         private bool isPuzzleActive;
-        private bool isPuzzleDone;
         
         private void OnEnable()
         {
@@ -36,29 +37,41 @@ namespace PuzzleSystem.Sample.TableauSample
             PuzzleManager.Instance.OnPuzzleStarted -= PuzzleState;
         }
 
+        private void Start()
+        {
+            puzzle = new TableauPuzzle(audioClip);
+            PuzzleManager.Instance.StartPuzzle(puzzle, this);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (isPuzzleActive || player.isInRange)
+                {
+                    if (menu.menuState == MenuManager.MenuState.TableauInput)
+                    {
+                        menu.SwitchMenuState(MenuManager.MenuState.None);
+                        playerInput.text = "";
+                    }
+                    else if (menu.menuState == MenuManager.MenuState.None)
+                    {
+                        menu.SwitchMenuState(MenuManager.MenuState.TableauInput);
+                    }
+                }
+            }
+        }
+
         private void PuzzleState(IPuzzleRunner runner)
         {
             if (runner.Puzzle.GetType() == typeof(TableauPuzzle))
             {
                 isPuzzleActive = !isPuzzleActive;
-                menu.SwitchMenuState(isPuzzleActive ? MenuManager.MenuState.TableauInput : MenuManager.MenuState.None);
 
                 if (!isPuzzleActive)
                 {
-                    isPuzzleDone = true;
-                    instructions.SetActive(false);
+                    menu.SwitchMenuState(MenuManager.MenuState.None);
                 }
-            }
-        }
-        
-        private void Update()
-        {
-            if (isPuzzleDone) return;
-            
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                puzzle = new TableauPuzzle(audioClip);
-                PuzzleManager.Instance.StartPuzzle(puzzle, this);
             }
         }
         
