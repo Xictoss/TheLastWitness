@@ -83,12 +83,7 @@ namespace TheLastWitness.Core.Player
         {
             if (context.phase == InputActionPhase.Performed)
             {
-                IsCrouching = true;
-            }
-
-            if (context.phase == InputActionPhase.Canceled)
-            {
-                IsCrouching = false;
+                IsCrouching = !IsCrouching;
             }
         }
     }

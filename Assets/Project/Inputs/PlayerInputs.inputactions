@@ -178,9 +178,9 @@
                 {
                     "name": "",
                     "id": "e967ee94-14b1-4f5a-a794-ef292503de09",
-                    "path": "<Gamepad>/leftStick/x",
+                    "path": "<Gamepad>/rightStick/x",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=0.1)",
                     "groups": ";Gamepad",
                     "action": "Look_X",
                     "isComposite": false,
@@ -200,9 +200,9 @@
                 {
                     "name": "",
                     "id": "f0914bd8-b53a-448d-b705-44fa387b64f6",
-                    "path": "<Gamepad>/leftStick/y",
+                    "path": "<Gamepad>/rightStick/y",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=0.1)",
                     "groups": ";Gamepad",
                     "action": "Look_Y",
                     "isComposite": false,
@@ -215,6 +215,17 @@
                     "interactions": "Hold",
                     "processors": "",
                     "groups": ";KeyboardAndMouse",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bcde8a85-1544-4960-a81f-ef9db30bb122",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
