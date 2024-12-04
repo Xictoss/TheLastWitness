@@ -1,6 +1,8 @@
 ﻿using TheLastWitness.Core.Camera;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.InputSystem;
+
 
 namespace TheLastWitness.Core.Player
 {
@@ -22,6 +24,8 @@ namespace TheLastWitness.Core.Player
         [Header("Crouch")]
         [SerializeField] private float crounchMultiplier = 0.5f;
         [SerializeField] private float crouchHeight = 1.5f;
+        [Header("SwapTexture")]
+        [SerializeField] private RenderObjects gridRendererFeature; 
 
         
         private bool isMoving;
@@ -74,7 +78,7 @@ namespace TheLastWitness.Core.Player
         {
             Vector2 input = context.ReadValue<Vector2>();
             //Debug.Log(input);
-
+            
             isMoving = input.sqrMagnitude != 0;
             targetVelocity = input * speed;
         }
@@ -84,6 +88,18 @@ namespace TheLastWitness.Core.Player
             if (context.phase == InputActionPhase.Performed)
             {
                 IsCrouching = !IsCrouching;
+            }
+        }
+
+        public void OnSwapTextureInput(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if (gridRendererFeature != null)
+                {
+                    gridRendererFeature.SetActive(!gridRendererFeature.isActive);
+                    Debug.Log("GridRenderer est maintenant " + (gridRendererFeature.isActive ? "activé" : "désactivé"));
+                }
             }
         }
     }
