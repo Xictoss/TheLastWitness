@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: GridRenderer
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     passTag: GridRenderer
     Event: 300
@@ -22,7 +22,7 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 55
       PassNames: []
-    overrideMaterial: {fileID: 2100000, guid: d3d38d7a7b8583549b0cbe09cb5864f0, type: 2}
+    overrideMaterial: {fileID: 2100000, guid: 69b5721e37860ab4199ddb2d6684c64b, type: 2}
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: 4800000, guid: a5e1047f27bee462089b2bc3104f90fd, type: 3}
     overrideShaderPassIndex: 0
