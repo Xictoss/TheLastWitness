@@ -40,6 +40,7 @@ namespace TheLastWitness.Core.Player
         {
             CharacterController = GetComponent<CharacterController>();
             baseHeight = CharacterController.height;
+            gridRendererFeature.SetActive(false);
         }
         
         private void FixedUpdate()
