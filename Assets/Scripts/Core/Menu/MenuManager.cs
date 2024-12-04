@@ -79,8 +79,6 @@ namespace TheLastWitness.Core.Menu
                     GameController.CursorVisibility.ChangeChannelPriority(this, PriorityTags.High);
                     GameController.CursorLockMode.ChangeChannelPriority(this, PriorityTags.High);
                     break;
-
-                    return;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

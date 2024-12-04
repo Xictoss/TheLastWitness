@@ -16,9 +16,9 @@ namespace TheLastWitness.Core.Player
         
         [Header("Movement")]
         [SerializeField] private float speed = 8f;
-        [SerializeField] private float sprintMultiplier = 2f;
-        [SerializeField] private float acceleration = 16f;
-        [SerializeField] private float deceleration = 32f;
+        //[SerializeField] private float sprintMultiplier = 2f;
+        //[SerializeField] private float acceleration = 16f;
+        //[SerializeField] private float deceleration = 32f;
         [Header("Physic")] 
         [SerializeField] private float gravity;
         [Header("Crouch")]
