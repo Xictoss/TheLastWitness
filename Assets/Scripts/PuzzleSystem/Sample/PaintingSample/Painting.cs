@@ -9,7 +9,7 @@ namespace PuzzleSystem.Sample.PaintingSample
         [SerializeField] private GameObject instructions;
         [SerializeField] private PaintingPlayer paintingPlayer;
 
-        private bool isHoldingShard;
+        public bool isHoldingShard;
 
         private void Awake()
         {

@@ -14,10 +14,8 @@ namespace PuzzleSystem.Sample.PaintingSample
     {
         [Header("References")]
         [SerializeField] private GameObject instructions;
-        [SerializeField] private Painting _painting1;
-        [SerializeField] private Painting _painting2;
-        [SerializeField] private Painting _painting3;
-        [SerializeField] private Painting _painting4;
+        [SerializeField] private Painting[] _paintings;
+        [SerializeField] private PaintingShard[] _shards;
         
         private PaintingPuzzle puzzle;
         
@@ -27,16 +25,7 @@ namespace PuzzleSystem.Sample.PaintingSample
             PuzzleManager.Instance.StartPuzzle(puzzle, this);
         }
         
-        public PaintingContext GetContext()
-        {
-            return new PaintingContext
-            {
-                Painting1 = _painting1,
-                Painting2 = _painting2,
-                Painting3 = _painting3,
-                Painting4 = _painting4
-            };
-        }
+        
         
         private void OnEnable()
         {
@@ -52,6 +41,15 @@ namespace PuzzleSystem.Sample.PaintingSample
         
         private void PuzzleState(IPuzzleRunner runner)
         {
+        }
+        
+        public PaintingContext GetContext()
+        {
+            return new PaintingContext
+            {
+                Paintings = _paintings,
+                PaintingShards = _shards
+            };
         }
         
     }
