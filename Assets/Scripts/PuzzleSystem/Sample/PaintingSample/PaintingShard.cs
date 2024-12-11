@@ -4,17 +4,18 @@ namespace PuzzleSystem.Sample.PaintingSample
 {
     public class PaintingShard : MonoBehaviour
     {
-        [SerializeField] private string paintingReferences;
+        public int shardReferences;
         [SerializeField] private Collider paintingShardCollider;
+        [SerializeField] public Rigidbody paintingShardRigidbody;
         [SerializeField] private GameObject instructions;
+        [SerializeField] private PaintingPlayer paintingPlayer;
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && paintingPlayer.isHoldingShard == false)
             {
                 instructions.SetActive(true);
                 var player = other.GetComponent<PaintingPlayer>();
-                player.isInRange = true;
                 player.shardInRange = this;
             }
         }
@@ -25,7 +26,6 @@ namespace PuzzleSystem.Sample.PaintingSample
             {
                 instructions.SetActive(false);
                 var player = other.GetComponent<PaintingPlayer>();
-                player.isInRange = false;
                 player.shardInRange = null;
             }
         }

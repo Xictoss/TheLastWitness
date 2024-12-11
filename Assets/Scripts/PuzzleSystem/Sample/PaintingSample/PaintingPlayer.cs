@@ -5,29 +5,62 @@ namespace PuzzleSystem.Sample.PaintingSample
 {
     public class PaintingPlayer : MonoBehaviour
     {
-        public bool isHoldingShard;
-        public bool isInRange;
-        public Transform handPosition;
+        [SerializeField] private Transform handPosition;
+        private PaintingShard currentShardHolded;
         public PaintingShard shardInRange;
-
-        private PaintingShard currentShard;
+        public Painting currentPaintingInRange;
         
-        private void OnTryToHold(InputAction.CallbackContext context)
+        [SerializeField] public bool isHoldingShard;
+        public bool isInRange;
+        
+        public void OnTryToHold(InputAction.CallbackContext context)
         {
-            if (!isHoldingShard && shardInRange != null)
+            if (context.phase == InputActionPhase.Performed)
             {
-                shardInRange.transform.parent = handPosition;
-                currentShard = shardInRange;
+                if (!isHoldingShard && shardInRange != null)
+                {
+                    Debug.Log("attrape");
+                    currentShardHolded = shardInRange;
+                    currentShardHolded.transform.position = handPosition.position;
+                    currentShardHolded.transform.parent = handPosition;
+                    currentShardHolded.paintingShardRigidbody.isKinematic = true;
+                    isHoldingShard = true;
+                }
             }
         }
-
-        private void OnDeposit(InputAction.CallbackContext context)
+        
+        
+        
+        public void OnTryToPaint(InputAction.CallbackContext context)
         {
-            if (currentShard)
+            if (context.phase == InputActionPhase.Performed)
             {
-                currentShard.transform.parent = null;
-                currentShard = null;
+                if (isHoldingShard && currentPaintingInRange != null)
+                {
+                    Debug.Log("Pose sur le tableau");
+                    Debug.Log(currentShardHolded);
+                    Debug.Log(currentPaintingInRange);
+                    currentShardHolded.transform.position = currentPaintingInRange.paintingShardAnchor.transform.position;
+                    currentShardHolded.transform.parent = currentPaintingInRange.paintingShardAnchor;
+                    isHoldingShard = false;
+                }
             }
         }
+        
+        public void OnDeposit(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+            {
+                if (isHoldingShard)
+                {
+                    Debug.Log("lache");
+                    currentShardHolded.paintingShardRigidbody.isKinematic = false;
+                    isHoldingShard = false;
+                    currentShardHolded.transform.parent = null;
+                    currentShardHolded = null;
+                }
+            }
+        }
+        
     }
 }

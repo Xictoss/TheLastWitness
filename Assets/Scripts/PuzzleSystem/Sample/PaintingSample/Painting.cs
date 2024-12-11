@@ -1,27 +1,42 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace PuzzleSystem.Sample.PaintingSample
 {
     public class Painting : MonoBehaviour
     {
-        
-        [SerializeField] private GameObject instructions;
+        [SerializeField] private int paintingReference;
+        [SerializeField] private GameObject placeInsctruction;
         [SerializeField] private PaintingPlayer paintingPlayer;
+        [SerializeField] public Transform paintingShardAnchor;
+        private int currentShardReference;
+        public bool isValid { get; private set; }
 
-        public bool isHoldingShard;
-
-        private void Awake()
+        public void PuzzleEnd()
         {
-            bool isHoldingShard = paintingPlayer.isHoldingShard;
+            
+        }
+
+        private void GetShardReference() 
+        { 
+            if(transform.childCount > 0)
+                currentShardReference = transform.GetChild(0).GetComponent<PaintingShard>().shardReferences;
+        }
+
+        public bool CheckReferences()
+        {
+            GetShardReference();
+            return currentShardReference == paintingReference;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") && isHoldingShard)
+            if (other.CompareTag("Player") && paintingPlayer.isHoldingShard)
             {
-                instructions.SetActive(true);
-                other.GetComponent<PaintingPlayer>().isInRange = true;
+                placeInsctruction.SetActive(true);
+                other.GetComponent<PaintingPlayer>().currentPaintingInRange = this;
             }
         }
         
@@ -29,9 +44,10 @@ namespace PuzzleSystem.Sample.PaintingSample
         {
             if (other.CompareTag("Player"))
             {
-                instructions.SetActive(false);
-                other.GetComponent<PaintingPlayer>().isInRange = false;
+                placeInsctruction.SetActive(false);
+                other.GetComponent<PaintingPlayer>().currentPaintingInRange = null;
             }
         }
+        
     }
 }

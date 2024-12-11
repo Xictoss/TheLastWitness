@@ -7,6 +7,5 @@ namespace PuzzleSystem.Sample.PaintingSample
     {
         public Painting[] Paintings;
         public PaintingShard[] PaintingShards;
-
     }
 }
