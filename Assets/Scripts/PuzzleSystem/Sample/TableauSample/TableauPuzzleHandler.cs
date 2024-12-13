@@ -47,7 +47,7 @@ namespace PuzzleSystem.Sample.TableauSample
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                if (isPuzzleActive || player.isInRange)
+                if (isPuzzleActive && player.isInRange)
                 {
                     if (menu.menuState == MenuManager.MenuState.TableauInput)
                     {
@@ -60,6 +60,8 @@ namespace PuzzleSystem.Sample.TableauSample
                     }
                 }
             }
+            
+            //Debug.Log();
         }
 
         private void PuzzleState(IPuzzleRunner runner)

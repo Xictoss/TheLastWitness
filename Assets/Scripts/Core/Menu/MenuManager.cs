@@ -61,7 +61,6 @@ namespace TheLastWitness.Core.Menu
             switch (menuState)
             {
                 case MenuState.Pause:
-                    MainCanvas.SetActive(true);
                     GameController.CursorVisibility.ChangeChannelPriority(this, PriorityTags.High);
                     GameController.CursorLockMode.ChangeChannelPriority(this, PriorityTags.High);
                     Time.timeScale = 0f;
@@ -69,7 +68,6 @@ namespace TheLastWitness.Core.Menu
                 case MenuState.Options:
                     break;
                 case MenuState.None:
-                    MainCanvas.SetActive(false);
                     GameController.CursorVisibility.ChangeChannelPriority(this, PriorityTags.None);
                     GameController.CursorLockMode.ChangeChannelPriority(this, PriorityTags.None);
                     Time.timeScale = 1f;

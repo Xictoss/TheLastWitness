@@ -7,11 +7,14 @@ namespace PuzzleSystem.Sample.TableauSample
     {
         [SerializeField] private AudioSource audioSource;
         [SerializeField] private GameObject instructions;
-        
+        [SerializeField] private Collider doorCollider;
         public void PuzzleEnd(AudioClip audioClip)
         {
             audioSource.clip = audioClip;
             audioSource.Play();
+            
+            doorCollider.enabled = false;
+            instructions.SetActive(false);
 
             Vector3 targetPos = new Vector3(transform.position.x + 2f, transform.position.y, transform.position.z);
             transform.parent.DOMove(targetPos, 1.5f);
