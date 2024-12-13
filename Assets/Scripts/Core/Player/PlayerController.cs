@@ -41,5 +41,15 @@ namespace TheLastWitness.Core.Player
             //alligné la joueur à la camera
             PlayerMovement.transform.forward = Vector3.ProjectOnPlane(PlayerCamera.transform.forward, Vector3.up);
         }
+
+        public void LockInputs()
+        {
+            PlayerInput.DeactivateInput();
+        }
+
+        public void UnlockInputs()
+        {
+            PlayerInput.ActivateInput();
+        }
     }
 }
