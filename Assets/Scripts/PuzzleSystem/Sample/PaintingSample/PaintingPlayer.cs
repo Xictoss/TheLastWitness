@@ -19,7 +19,6 @@ namespace PuzzleSystem.Sample.PaintingSample
             {
                 if (!isHoldingShard && shardInRange != null)
                 {
-                    Debug.Log("attrape");
                     currentShardHolded = shardInRange;
                     currentShardHolded.transform.position = handPosition.position;
                     currentShardHolded.transform.parent = handPosition;
@@ -37,9 +36,6 @@ namespace PuzzleSystem.Sample.PaintingSample
             {
                 if (isHoldingShard && currentPaintingInRange != null)
                 {
-                    Debug.Log("Pose sur le tableau");
-                    Debug.Log(currentShardHolded);
-                    Debug.Log(currentPaintingInRange);
                     currentShardHolded.transform.position = currentPaintingInRange.paintingShardAnchor.transform.position;
                     currentShardHolded.transform.parent = currentPaintingInRange.paintingShardAnchor;
                     isHoldingShard = false;
@@ -53,7 +49,6 @@ namespace PuzzleSystem.Sample.PaintingSample
             {
                 if (isHoldingShard)
                 {
-                    Debug.Log("lache");
                     currentShardHolded.paintingShardRigidbody.isKinematic = false;
                     isHoldingShard = false;
                     currentShardHolded.transform.parent = null;
