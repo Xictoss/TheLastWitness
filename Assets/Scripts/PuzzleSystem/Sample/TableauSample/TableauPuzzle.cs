@@ -5,13 +5,6 @@ namespace PuzzleSystem.Sample.TableauSample
 {
     public class TableauPuzzle : Puzzle<TableauContext>
     {
-        private AudioClip audioClip;
-
-        public TableauPuzzle(AudioClip audioClip)
-        {
-            this.audioClip = audioClip;
-        }
-        
         public override void Begin(ref TableauContext context)
         {
             
@@ -24,7 +17,7 @@ namespace PuzzleSystem.Sample.TableauSample
 
         public override void End(ref TableauContext context, bool isSuccess)
         {
-            context.tableau.PuzzleEnd(audioClip);
+            context.tableau.PuzzleEnd();
         }
     }
 }

@@ -5,13 +5,10 @@ namespace PuzzleSystem.Sample.TableauSample
 {
     public class Tableau : MonoBehaviour
     {
-        [SerializeField] private AudioSource audioSource;
         [SerializeField] private GameObject instructions;
         [SerializeField] private Collider doorCollider;
-        public void PuzzleEnd(AudioClip audioClip)
+        public void PuzzleEnd()
         {
-            audioSource.clip = audioClip;
-            audioSource.Play();
             
             doorCollider.enabled = false;
             instructions.SetActive(false);

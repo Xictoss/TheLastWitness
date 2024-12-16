@@ -39,7 +39,7 @@ namespace PuzzleSystem.Sample.TableauSample
 
         private void Start()
         {
-            puzzle = new TableauPuzzle(audioClip);
+            puzzle = new TableauPuzzle();
             PuzzleManager.Instance.StartPuzzle(puzzle, this);
         }
 

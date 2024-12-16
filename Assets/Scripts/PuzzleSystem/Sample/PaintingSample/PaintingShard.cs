@@ -10,7 +10,7 @@ namespace PuzzleSystem.Sample.PaintingSample
         [SerializeField] private GameObject instructions;
         [SerializeField] private PaintingPlayer paintingPlayer;
         
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.CompareTag("Player") && paintingPlayer.isHoldingShard == false)
             {

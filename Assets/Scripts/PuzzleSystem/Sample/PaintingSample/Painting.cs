@@ -37,7 +37,7 @@ namespace PuzzleSystem.Sample.PaintingSample
             return currentShardReference == paintingReference;
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (other.CompareTag("Player") && paintingPlayer.isHoldingShard)
             {
