@@ -15,11 +15,6 @@ namespace PuzzleSystem.Sample.CoffinSample
         [SerializeField] private Collider doorCollider;
         
         private int currentTapeReference;
-        
-        private void OnTriggerEnter(Collider other)
-        {
-            
-        }
 
         private void OnTriggerStay(Collider other)
         {
@@ -43,7 +38,7 @@ namespace PuzzleSystem.Sample.CoffinSample
         {
             doorCollider.enabled = false;
             
-            Vector3 targetPos = new Vector3(door.transform.position.x, door.transform.position.y, door.transform.position.z + 2f);
+            Vector3 targetPos = new Vector3(door.transform.position.x, door.transform.position.y + 4f, door.transform.position.z );
             door.DOMove(targetPos, .2f);
         }
 
