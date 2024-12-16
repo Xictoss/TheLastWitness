@@ -15,14 +15,13 @@ namespace PuzzleSystem.Sample.PaintingSample
         [SerializeField] private Transform _door;
 
         private int currentShardReference;
-        public bool isValid { get; private set; }
 
         public void PuzzleEnd()
         {
             _doorCollider.enabled = false;
             
-            Vector3 targetPos = new Vector3(_door.transform.position.x, _door.transform.position.y, _door.transform.position.z + 2f);
-            _door.DOMove(targetPos, .2f);
+            Vector3 targetPos = new Vector3(_door.transform.position.x, _door.transform.position.y + 3f, _door.transform.position.z);
+            _door.DOMove(targetPos, .4f);
         }
 
         private void GetShardReference() 

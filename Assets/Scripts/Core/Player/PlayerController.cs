@@ -20,6 +20,8 @@ namespace TheLastWitness.Core.Player
             //récupérer les components du player
             PlayerMovement = GetComponent<PlayerMovement>();
             PlayerCamera = GetComponentInChildren<PlayerCamera>();
+            
+            PlayerInput = GetComponent<PlayerInput>();
         }
 
         private void OnEnable()

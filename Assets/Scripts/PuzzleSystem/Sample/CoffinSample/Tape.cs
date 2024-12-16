@@ -12,12 +12,6 @@ namespace PuzzleSystem.Sample.CoffinSample
         [SerializeField] public Rigidbody tapeRigidbody;
         [SerializeField] private SoundBoxPlayer soundBoxPlayer;
 
-        
-        private void OnTriggerEnter(Collider other)
-        {
-            
-        }
-
         private void OnTriggerStay(Collider other)
         {
             if (other.CompareTag("Player") && soundBoxPlayer.isHoldingTape == false)
