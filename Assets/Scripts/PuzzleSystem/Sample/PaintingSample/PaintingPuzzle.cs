@@ -7,7 +7,7 @@ namespace PuzzleSystem.Sample.PaintingSample
 {
     public class PaintingPuzzle : Puzzle <PaintingContext>
     {
-        
+        [SerializeField] private Transform _door;
         
         
         public override void Begin(ref PaintingContext context)
@@ -29,7 +29,10 @@ namespace PuzzleSystem.Sample.PaintingSample
 
         public override void End(ref PaintingContext context, bool isSuccess)
         {
-            Debug.Log("ez");
+            if (context.Paintings.Length > 0)
+            {
+                context.Paintings[3].PuzzleEnd();
+            }
         }
     }
 }

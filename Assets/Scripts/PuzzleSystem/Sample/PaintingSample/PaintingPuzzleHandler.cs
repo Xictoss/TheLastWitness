@@ -48,7 +48,6 @@ namespace PuzzleSystem.Sample.PaintingSample
             return new PaintingContext
             {
                 Paintings = _paintings,
-                PaintingShards = _shards
             };
         }
         

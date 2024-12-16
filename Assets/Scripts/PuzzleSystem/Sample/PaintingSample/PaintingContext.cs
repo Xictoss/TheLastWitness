@@ -5,7 +5,6 @@ namespace PuzzleSystem.Sample.PaintingSample
 {
     public struct PaintingContext : IPuzzleContext
     {
-        public Painting[] Paintings;
-        public PaintingShard[] PaintingShards;
+        public Painting[] Paintings; 
     }
 }
