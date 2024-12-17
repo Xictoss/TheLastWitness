@@ -7,7 +7,7 @@ namespace TheLastWitness.Core.Menu
     {
         public void PlayButton()
         {
-            SceneManager.LoadScene("DydouLevelScene");
+            SceneManager.LoadScene("SceneLevelDesign");
         }
 
         public void QuitButton()
